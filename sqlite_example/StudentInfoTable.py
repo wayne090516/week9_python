@@ -80,16 +80,6 @@ class StudentInfoTable:
 
         return records_from_db
 
-    def select_all_students(self):
-        command = "SELECT * FROM student_info;"
-
-        with DBConnection() as connection:
-            cursor = connection.cursor()
-            cursor.execute(command)
-            records_from_db = cursor.fetchall()
-
-        return records_from_db
-    
     def update_student_score(self, student_name, subject, score):
         stu_id = self.select_a_student(student_name)
         if stu_id:
