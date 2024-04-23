@@ -10,7 +10,7 @@ class FunctionsHandler:
         student_name = parameters.get('name')
         student_scores = parameters.get('scores', {})
 
-        if student_name is None:  # 處理客戶端傳遞空參數的情況
+        if student_name is None:  
             return {'status': 'failed', 'message': 'Student name cannot be empty'}
 
         if self.students.select_a_student(student_name):

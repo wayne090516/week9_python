@@ -18,7 +18,7 @@ class PrintAll():
 
         for student, info in parameters.items():
             print(f"\nName: {student}")
-            for score_info in info.get('scores', []):  # 注意改为列表，不再是字典
+            for score_info in info.get('scores', []): 
                 subject = score_info.get('subject')
                 score = score_info.get('score')
                 print(f"  subject: {subject}, score: {score}")

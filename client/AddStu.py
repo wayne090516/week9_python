@@ -8,12 +8,10 @@ class AddStu:
         if student_name.lower() == 'exit':
             return {}
 
-        # 先查詢學生是否已經存在
         self.client.send_command('query', {'name': student_name})
         keep_going, response = self.client.wait_response()
 
         if response.get('status') == 'OK':
-            # 學生已經存在
             print(f"Student {student_name} already exists.")
             return {}
 

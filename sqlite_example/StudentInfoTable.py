@@ -21,14 +21,12 @@ class StudentInfoTable:
         return [row['stu_id'] for row in record_from_db]
 
     def delete_a_student(self, stu_id):
-    # 先從 subject_info 表中刪除該學生的所有成績記錄
         command = "DELETE FROM subject_info WHERE stu_id = {};".format(stu_id)
         with DBConnection() as connection:
             cursor = connection.cursor()
             cursor.execute(command)
             connection.commit()
 
-        # 再從 student_info 表中刪除該學生記錄
         command = "DELETE FROM student_info WHERE stu_id = {};".format(stu_id)
         with DBConnection() as connection:
             cursor = connection.cursor()
